@@ -307,7 +307,7 @@ int __fastcall FIRInstanceIDSignParams(__int64 a1, void *a2)
 // 3808: using guessed type int __fastcall objc_retainAutoreleasedReturnValue(_QWORD);
 
 //----- (0000000000000493) ----------------------------------------------------
-int __fastcall FIRInstanceIDSignData(__int64 a1, void *a2)
+int __fastcall FIRInstanceIDSignData(__int64 key, void *a2)
 {
   __int64 v2; // rax@1
   __int64 v3; // r15@1
@@ -340,7 +340,7 @@ int __fastcall FIRInstanceIDSignData(__int64 a1, void *a2)
 
   LODWORD(v2) = objc_retain(a2);
   v3 = v2;
-  LODWORD(v4) = SecKeyGetBlockSize(a1);
+  LODWORD(v4) = SecKeyGetBlockSize(key);
   v5 = v4;
   v27 = v4;
   v6 = objc_msgSend(a2, (const char *)*(&paRfc4648base64w + 4));
@@ -365,7 +365,7 @@ int __fastcall FIRInstanceIDSignData(__int64 a1, void *a2)
       v14 = v25;
       if ( v11 > v25 )
         v14 = v11;
-      v15 = SecKeyRawSign(a1, 0LL, &v24[v13], v12 - v14, v8, &v27);
+      v15 = SecKeyRawSign(key, 0LL, &v24[v13], v12 - v14, v8, &v27);
       if ( v15 )
         break;
       v16 = v8;

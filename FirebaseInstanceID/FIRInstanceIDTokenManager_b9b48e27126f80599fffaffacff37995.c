@@ -347,12 +347,12 @@ int __fastcall __93__FIRInstanceIDTokenManager_fetchNewTokenWithAuthorizedEntity
   void *v17; // rbx@3
   __int64 v18; // ST30_8@3
   __int64 v19; // r14@3
-  __int64 v20; // rax@3
-  __int64 v21; // rax@3
+  __int64 version; // rax@3
+  __int64 version2; // rax@3
   __int64 v22; // r8@3
-  __int64 v23; // r13@3
+  __int64 version3; // r13@3
   void *v24; // r14@3
-  void *v25; // rax@3
+  void *appid; // rax@3
   void *v26; // rbx@3
   void *v27; // rax@3
   void *v28; // rax@3
@@ -395,15 +395,15 @@ int __fastcall __93__FIRInstanceIDTokenManager_fetchNewTokenWithAuthorizedEntity
     v18 = *(_QWORD *)(v5 + 48);
     v41 = v11;
     v19 = *(_QWORD *)(v5 + 56);
-    LODWORD(v20) = FIRInstanceIDCurrentAppVersion(v15, v16);
-    LODWORD(v21) = objc_retainAutoreleasedReturnValue(v20);
+    LODWORD(version) = FIRInstanceIDCurrentAppVersion(v15, v16);
+    LODWORD(version2) = objc_retainAutoreleasedReturnValue(version);
     v22 = v7;
-    v23 = v21;
+    version3 = version2;
     v42 = v22;
     v24 = objc_msgSend(v17, *(&selRef_init + 15), v18, v19, v22, v14);
-    objc_release(v23);
-    v25 = objc_msgSend(*(&classRef_FIRInstanceIDStore + 4), *(&selRef_init + 1));
-    v26 = objc_msgSend(v25, *(&selRef_init + 16), *(_QWORD *)(v5 + 40));
+    objc_release(version3);
+    appid = objc_msgSend(*(&classRef_FIRInstanceIDStore + 4), *(&selRef_init + 1));
+    v26 = objc_msgSend(appid, *(&selRef_init + 16), *(_QWORD *)(v5 + 40));
     objc_msgSend(v24, *(&selRef_init + 17), v26);
     objc_release(v26);
     v27 = objc_msgSend(v41, *(&selRef_init + 18));
